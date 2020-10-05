@@ -39,7 +39,7 @@ class AuthorizeRequest extends AbstractRequest
 
         // 0 - waiting forever, 20 - default (in minutes)
         $data['f_auth_minutes'] = 20;
-        $data['f_language'] = 'RO'; // RO / EN / HU / IT / FR / DE / ES
+        $data['f_language'] = $this->getLang(); // RO / EN / HU / IT / FR / DE / ES
 
         $data['customer_info'] = $this->generateCustomerInfo();
         $data['shipping_info'] = $this->generateShippingInfo();

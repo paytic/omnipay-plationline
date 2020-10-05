@@ -3,6 +3,8 @@
 namespace ByTIC\Omnipay\PlatiOnline;
 
 use ByTIC\Omnipay\PlatiOnline\Message\AuthorizeRequest;
+use ByTIC\Omnipay\PlatiOnline\Message\AuthorizeResponse;
+use ByTIC\Omnipay\PlatiOnline\Message\PurchaseRequest;
 use ByTIC\Omnipay\PlatiOnline\Traits\HasSecurityParamsTrait;
 use Omnipay\Common\AbstractGateway;
 use Omnipay\Common\Message\NotificationInterface;
@@ -28,12 +30,6 @@ class Gateway extends AbstractGateway
     public const VERSION = '1.0';
 
     /**
-     * @var string
-     */
-    private $prodApiHost = 'https://api.PlatiOnline.com';
-
-
-    /**
      * @inheritdoc
      */
     public function getName()
@@ -49,11 +45,15 @@ class Gateway extends AbstractGateway
      */
     public function purchase(array $parameters = []): RequestInterface
     {
-//        return $this->createRequest(
-//            PurchaseRequest::class,
-//            array_merge($this->getDefaultParameters(), $parameters)
-//        );
+        $authorizeRequest = $this->authorize(array_merge($this->getDefaultParameters(), $parameters));
+
+        return $this->createRequest(
+            PurchaseRequest::class,
+            ['authorizeResponse' => $authorizeRequest->send()]
+        );
     }
+
+    // ------------ PARAMETERS ------------ //
 
     /** @noinspection PhpMissingParentCallCommonInspection
      *
@@ -63,39 +63,16 @@ class Gateway extends AbstractGateway
     {
         return [
             'testMode' => true, // Must be the 1st in the list!
-            'publicKey' => $this->getLoginId(),
+            'loginId' => $this->getLoginId(),
             'privateKey' => $this->getPublicKey(),
+            'initialVector' => $this->getInitialVector(),
             'website' => $this->getWebsite(),
             'currency' => 'RON',
-            'apiUrl' => $this->getApiUrl()
+            'lang' => 'RO'
         ];
     }
 
-    // ------------ PARAMETERS ------------ //
-
-    /**
-     * @param  boolean $value
-     * @return $this|AbstractGateway
-     */
-    public function setTestMode($value)
-    {
-        $this->parameters->remove('apiUrl');
-        $this->parameters->remove('secureUrl');
-        return parent::setTestMode($value);
-    }
-
     // ------------ Getter'n'Setters ------------ //
-
-    /**
-     * Get live- or testURL.
-     */
-    public function getApiUrl()
-    {
-        $defaultUrl = $this->getTestMode() === false
-            ? $this->prodApiHost
-            : $this->prodApiHost;
-        return $this->parameters->get('apiUrl', $defaultUrl);
-    }
 
     /**
      * @inheritdoc
@@ -111,7 +88,7 @@ class Gateway extends AbstractGateway
 
     /**
      * @inheritdoc
-     * @return CaptureRequest
+     * @return AuthorizeResponse
      */
     public function authorize(array $parameters = []): RequestInterface
     {
@@ -130,14 +107,5 @@ class Gateway extends AbstractGateway
 //            ServerCompletePurchaseRequest::class,
 //            array_merge($this->getDefaultParameters(), $parameters)
 //        );
-    }
-
-    /**
-     * @param $value
-     * @return $this
-     */
-    public function setApiUrl($value)
-    {
-        return $this->setParameter('apiUrl', $value);
     }
 }

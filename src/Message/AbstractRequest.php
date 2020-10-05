@@ -18,6 +18,7 @@ abstract class AbstractRequest extends CommonAbstractRequest
 
     use \ByTIC\Omnipay\PlatiOnline\Traits\HasSecurityParamsTrait;
     use \ByTIC\Omnipay\Common\Message\Traits\ParametersTrait;
+    use \ByTIC\Omnipay\Common\Message\Traits\HasLanguageRequestTrait;
     use \ByTIC\Omnipay\Common\Message\Traits\SendDataRequestTrait;
 
     use AbstractSoapRequestTrait {
