@@ -6,6 +6,7 @@ use ByTIC\Omnipay\PlatiOnline\Message\AuthorizeRequest;
 use ByTIC\Omnipay\PlatiOnline\Message\AuthorizeResponse;
 use ByTIC\Omnipay\PlatiOnline\Message\CompletePurchaseRequest;
 use ByTIC\Omnipay\PlatiOnline\Message\PurchaseRequest;
+use ByTIC\Omnipay\PlatiOnline\Message\ServerCompletePurchaseRequest;
 use ByTIC\Omnipay\PlatiOnline\Traits\HasSecurityParamsTrait;
 use Omnipay\Common\AbstractGateway;
 use Omnipay\Common\Message\NotificationInterface;
@@ -54,31 +55,9 @@ class Gateway extends AbstractGateway
         );
     }
 
-    // ------------ PARAMETERS ------------ //
-
-    /** @noinspection PhpMissingParentCallCommonInspection
-     *
-     * {@inheritdoc}
-     */
-    public function getDefaultParameters()
-    {
-        return [
-            'testMode' => true, // Must be the 1st in the list!
-            'loginId' => $this->getLoginId(),
-            'privateKey' => $this->getPublicKey(),
-            'initialVector' => $this->getInitialVector(),
-            'initialVectorItsn' => $this->getInitialVectorItsn(),
-            'website' => $this->getWebsite(),
-            'currency' => 'RON',
-            'lang' => 'RO'
-        ];
-    }
-
-    // ------------ Getter'n'Setters ------------ //
-
     /**
      * @inheritdoc
-//     * @return CompletePurchaseRequest
+     * //     * @return CompletePurchaseRequest
      */
     public function completePurchase(array $parameters = []): RequestInterface
     {
@@ -105,9 +84,33 @@ class Gateway extends AbstractGateway
      */
     public function serverCompletePurchase(array $parameters = []): RequestInterface
     {
-//        return $this->createRequest(
-//            ServerCompletePurchaseRequest::class,
-//            array_merge($this->getDefaultParameters(), $parameters)
-//        );
+        return $this->createRequest(
+            ServerCompletePurchaseRequest::class,
+            array_merge($this->getDefaultParameters(), $parameters)
+        );
     }
+
+    // ------------ PARAMETERS ------------ //
+
+    /** @noinspection PhpMissingParentCallCommonInspection
+     *
+     * {@inheritdoc}
+     */
+    public function getDefaultParameters()
+    {
+        return [
+            'testMode' => true, // Must be the 1st in the list!
+            'loginId' => $this->getLoginId(),
+            'publicKey' => $this->getPublicKey(),
+            'privateKey' => $this->getPrivateKey(),
+            'initialVector' => $this->getInitialVector(),
+            'initialVectorItsn' => $this->getInitialVectorItsn(),
+            'website' => $this->getWebsite(),
+            'currency' => 'RON',
+            'lang' => 'RO'
+        ];
+    }
+
+    // ------------ Getter'n'Setters ------------ //
+
 }
