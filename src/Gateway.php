@@ -4,6 +4,7 @@ namespace ByTIC\Omnipay\PlatiOnline;
 
 use ByTIC\Omnipay\PlatiOnline\Message\AuthorizeRequest;
 use ByTIC\Omnipay\PlatiOnline\Message\AuthorizeResponse;
+use ByTIC\Omnipay\PlatiOnline\Message\CompletePurchaseRequest;
 use ByTIC\Omnipay\PlatiOnline\Message\PurchaseRequest;
 use ByTIC\Omnipay\PlatiOnline\Traits\HasSecurityParamsTrait;
 use Omnipay\Common\AbstractGateway;
@@ -66,6 +67,7 @@ class Gateway extends AbstractGateway
             'loginId' => $this->getLoginId(),
             'privateKey' => $this->getPublicKey(),
             'initialVector' => $this->getInitialVector(),
+            'initialVectorItsn' => $this->getInitialVectorItsn(),
             'website' => $this->getWebsite(),
             'currency' => 'RON',
             'lang' => 'RO'
@@ -80,10 +82,10 @@ class Gateway extends AbstractGateway
      */
     public function completePurchase(array $parameters = []): RequestInterface
     {
-//        return $this->createRequest(
-//            CompletePurchaseRequest::class,
-//            array_merge($this->getDefaultParameters(), $parameters)
-//        );
+        return $this->createRequest(
+            CompletePurchaseRequest::class,
+            array_merge($this->getDefaultParameters(), $parameters)
+        );
     }
 
     /**

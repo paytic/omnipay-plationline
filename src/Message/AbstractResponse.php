@@ -14,36 +14,4 @@ use Omnipay\Common\Message\AbstractResponse as CommonAbstractResponse;
 abstract class AbstractResponse extends CommonAbstractResponse
 {
     use DataAccessorsTrait;
-
-    /**
-     * @inheritdoc
-     */
-    public function isSuccessful()
-    {
-        return $this->getCode() != 1;
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function getMessage()
-    {
-        return (string) $this->data->po_error_reason;
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function getCode()
-    {
-        return (string) $this->data->po_error_code;
-    }
-
-    /**
-     * @inheritDoc
-     */
-    public function getTransactionReference()
-    {
-        return (string) $this->data->x_trans_id;
-    }
 }

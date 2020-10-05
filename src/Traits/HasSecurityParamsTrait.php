@@ -13,17 +13,6 @@ trait HasSecurityParamsTrait
     protected $aesKey = null;
 
     /**
-     * @param $params
-     */
-    protected function validateWithSecurityParams(...$params)
-    {
-        $params[] = 'publicKey';
-        $params[] = 'loginId';
-        $params[] = 'website';
-        $this->validate(...$params);
-    }
-
-    /**
      * @return mixed
      */
     public function getPublicKey()
@@ -38,6 +27,23 @@ trait HasSecurityParamsTrait
     public function setPublicKey($value)
     {
         return $this->setParameter('publicKey', $value);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPrivateKey()
+    {
+        return $this->getParameter('privateKey');
+    }
+
+    /**
+     * @param $value
+     * @return static
+     */
+    public function setPrivateKey($value)
+    {
+        return $this->setParameter('privateKey', $value);
     }
 
     // INFO f_website
@@ -85,6 +91,23 @@ trait HasSecurityParamsTrait
     public function getInitialVector()
     {
         return $this->getParameter('initialVector');
+    }
+
+    /**
+     * @param $value
+     * @return static
+     */
+    public function setInitialVectorItsn($value)
+    {
+        return $this->setParameter('initialVectorItsn', $value);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getInitialVectorItsn()
+    {
+        return $this->getParameter('initialVectorItsn');
     }
 
     /**
