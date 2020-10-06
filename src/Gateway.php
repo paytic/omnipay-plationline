@@ -16,6 +16,7 @@ use Omnipay\Common\Message\RequestInterface;
  * Class Gateway
  * @package ByTIC\Omnipay\PlatiOnline
  *
+ * @method RequestInterface capture(array $options = [])
  * @method RequestInterface completeAuthorize(array $options = [])
  * @method RequestInterface refund(array $options = [])
  * @method RequestInterface void(array $options = [])
@@ -23,7 +24,7 @@ use Omnipay\Common\Message\RequestInterface;
  * @method RequestInterface updateCard(array $options = [])
  * @method RequestInterface deleteCard(array $options = [])
  * @method RequestInterface fetchTransaction(array $options = [])
- * @method NotificationInterface acceptNotification(array $options = array())
+ * @method NotificationInterface acceptNotification(array $options = [])
  */
 class Gateway extends AbstractGateway
 {

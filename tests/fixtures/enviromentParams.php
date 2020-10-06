@@ -11,7 +11,6 @@ $parameters = array_merge(
         'website' => getenv('PLATIONLINE_WEBSITE'),
         'initialVector' => getenv('PLATIONLINE_INITIAL_VECTOR'),
         'initialVectorItsn' => getenv('PLATIONLINE_INITIAL_VECTOR_ITSN'),
-        'transactionId' => '5f5b9640e2412a5baa857e57',
         'testMode' => true
     ]
 );

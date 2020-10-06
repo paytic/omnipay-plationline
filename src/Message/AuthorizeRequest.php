@@ -77,8 +77,11 @@ class AuthorizeRequest extends AbstractRequest
         $customerInfo['contact']['f_email'] = $card->getEmail();
 
         // must not be empty, minimum 4 characters. If empty don't send this tag, it will be filled in PO interface
-        $customerInfo['contact']['f_phone'] = $card->getBillingPhone();
-        $customerInfo['contact']['f_mobile_number'] = $card->getBillingPhone();
+        $phone =  $card->getBillingPhone();
+        $phone = $phone ? $phone : '----';
+        $customerInfo['contact']['f_phone'] = $phone;
+
+        $customerInfo['contact']['f_mobile_number'] = $phone;
 
         // 1 - sms client notification 0 - no notification
         $customerInfo['contact']['f_send_sms'] = 1;
@@ -99,13 +102,19 @@ class AuthorizeRequest extends AbstractRequest
         $customerInfo['invoice']['f_country'] = $card->getBillingCountry();
 
         // must not be empty. If empty don't send this tag, it will be filled in PO interface
-        $customerInfo['invoice']['f_state'] = $card->getBillingState();
+        $state = $card->getBillingState();
+        $state = $state ? $state : '-';
+        $customerInfo['invoice']['f_state'] = $state;
 
         // must not be empty. If empty don't send this tag, it will be filled in PO interface
-        $customerInfo['invoice']['f_city'] = $card->getBillingCity();
+        $city = $card->getBillingCity();
+        $city = $city ? $city : '-';
+        $customerInfo['invoice']['f_city'] = $city;
 
         // must not be empty. If empty don't send this tag, it will be filled in PO interface
-        $customerInfo['invoice']['f_address'] = $card->getBillingAddress1();
+        $address = $card->getBillingAddress1();
+        $address = $address ? $address : '-';
+        $customerInfo['invoice']['f_address'] = $address;
 
         return $customerInfo;
     }
@@ -121,8 +130,11 @@ class AuthorizeRequest extends AbstractRequest
 
         //contact
         $shipping_info['contact']['f_email'] = $card->getEmail();
-        $shipping_info['contact']['f_phone'] = $card->getShippingPhone();
-        $shipping_info['contact']['f_mobile_number'] = $card->getShippingPhone();
+
+        $phone =  $card->getShippingPhone();
+        $phone = $phone ? $phone : '----';
+        $shipping_info['contact']['f_phone'] = $phone;
+        $shipping_info['contact']['f_mobile_number'] = $phone;
 
         // 1 - sms client notification 0 - no notification
         $shipping_info['contact']['f_send_sms'] = 1;
@@ -134,9 +146,18 @@ class AuthorizeRequest extends AbstractRequest
         $shipping_info['address']['f_company'] = $card->getShippingCompany();
         $shipping_info['address']['f_zip'] = $card->getShippingPostcode();
         $shipping_info['address']['f_country'] = $card->getShippingCountry();
-        $shipping_info['address']['f_state'] = $card->getShippingState();
-        $shipping_info['address']['f_city'] = $card->getShippingCity();
-        $shipping_info['address']['f_address'] = substr($card->getShippingAddress1(), 0, 100);
+
+        $state = $card->getShippingState();
+        $state = $state ? $state : '-';
+        $shipping_info['address']['f_state'] = $state;
+
+        $city = $card->getShippingCity();
+        $city = $city ? $city : '-';
+        $shipping_info['address']['f_city'] = $city;
+
+        $address = $card->getBillingAddress1();
+        $address = $address ? $address : '-';
+        $shipping_info['address']['f_address'] = substr($address, 0, 100);
 
         return $shipping_info;
     }
@@ -144,7 +165,7 @@ class AuthorizeRequest extends AbstractRequest
     protected function generateRelayResponse(): array
     {
         $relayResponse = [];
-        $relayResponse['f_relay_response_url'] = $this->getNotifyUrl();
+        $relayResponse['f_relay_response_url'] = $this->getReturnUrl();
 
         // INFO f_relay_method
         // PTOR, POST_S2S_PO_PAGE, POST_S2S_MT_PAGE, SOAP_PO_PAGE, SOAP_MT_PAGE
