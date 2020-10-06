@@ -100,7 +100,7 @@ class Gateway extends AbstractGateway
     public function getDefaultParameters()
     {
         return [
-            'testMode' => true, // Must be the 1st in the list!
+            'testMode' => $this->getTestMode(),
             'loginId' => $this->getLoginId(),
             'publicKey' => $this->getPublicKey(),
             'privateKey' => $this->getPrivateKey(),
