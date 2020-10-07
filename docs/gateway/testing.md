@@ -1,0 +1,1 @@
+CARD 4111111111111111 orice data expirare ulterioara cvv 999
