@@ -4,6 +4,10 @@ namespace ByTIC\Omnipay\PlatiOnline\Message\Traits;
 
 use SimpleXMLElement;
 
+/**
+ * Trait RelayResponseTrait
+ * @package ByTIC\Omnipay\PlatiOnline\Message\Traits
+ */
 trait RelayResponseTrait
 {
     /**
