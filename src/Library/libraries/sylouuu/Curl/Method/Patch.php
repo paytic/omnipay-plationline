@@ -1,5 +1,6 @@
 <?php
-    namespace sylouuu\Curl\Method;
+
+namespace sylouuu\Curl\Method;
 
     /**
      * Patch
@@ -31,7 +32,7 @@
         {
             $this->setCurlOption(CURLOPT_CUSTOMREQUEST, 'PATCH');
 
-            if(isset($this->options['data'])) {
+            if (isset($this->options['data'])) {
                 // Data
                 $data = (isset($this->options['is_payload']) && $this->options['is_payload'] === true) ? json_encode($this->options['data']) : http_build_query($this->options['data']);
 

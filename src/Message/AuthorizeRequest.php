@@ -27,8 +27,14 @@ class AuthorizeRequest extends AbstractRequest
     {
         $this->validate('publicKey', 'loginId', 'website', 'amount', 'card');
         $this->validateCard(
-            'BillingPhone', 'FirstName', 'LastName', 'BillingCountry', 'BillingCity',
-            'ShippingPhone', 'ShippingCountry', 'ShippingCity'
+            'BillingPhone',
+            'FirstName',
+            'LastName',
+            'BillingCountry',
+            'BillingCity',
+            'ShippingPhone',
+            'ShippingCountry',
+            'ShippingCity'
         );
 
         $data = [];
@@ -54,7 +60,7 @@ class AuthorizeRequest extends AbstractRequest
         $data['f_order_cart'] = $this->generateOrderCart();
 
 
-//shipping
+        //shipping
 //        $shipping = array();
 //        $shipping['name'] = substr('Shipping 1', 0, 250);
 //        $shipping['price'] = (float)15.5;
@@ -91,7 +97,7 @@ class AuthorizeRequest extends AbstractRequest
         $customerInfo['contact']['f_last_name'] = $card->getBillingLastName();
         //$customer_info['contact']['f_middle_name'] 	 = '';
 
-//invoice
+        //invoice
 //        $customer_info['invoice']['f_company'] = 'Test company';        // optional
 //        $customer_info['invoice']['f_cui'] = '111111';            // optional
 //        $customer_info['invoice']['f_reg_com'] = 'J55/99/2000';        // optional
@@ -140,7 +146,7 @@ class AuthorizeRequest extends AbstractRequest
         $shipping_info['contact']['f_send_sms'] = 1;
         $shipping_info['contact']['f_first_name'] = $card->getShippingFirstName();
         $shipping_info['contact']['f_last_name'] = $card->getShippingLastName();
-//$shipping_info['contact']['f_middle_name'] 	 = '';
+        //$shipping_info['contact']['f_middle_name'] 	 = '';
 
         //address
         $shipping_info['address']['f_company'] = $card->getShippingCompany();

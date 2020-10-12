@@ -1,5 +1,6 @@
 <?php
-    namespace sylouuu\Curl;
+
+namespace sylouuu\Curl;
 
     /**
      * Curl abstracted class
@@ -11,7 +12,6 @@
      */
     abstract class Curl
     {
-
         // Curl
         protected $ch;
         protected $curl_options;
@@ -32,7 +32,7 @@
          */
         public function __construct($url, $options = null)
         {
-            if(isset($url)) {
+            if (isset($url)) {
                 $this->options = $options;
 
                 $this->options['request_headers'] = [];
@@ -125,19 +125,19 @@
             $this->setCurlOption(CURLINFO_HEADER_OUT, true);
 
             // Additional headers
-            if(isset($this->options['headers']) && count($this->options['headers']) > 0) {
+            if (isset($this->options['headers']) && count($this->options['headers']) > 0) {
                 $this->options['request_headers'] = array_merge($this->options['request_headers'], $this->options['headers']);
             }
 
             // SSL
-            if(isset($this->options['ssl'])) {
+            if (isset($this->options['ssl'])) {
                 $this->setCurlOption(CURLOPT_SSL_VERIFYPEER, true);
                 $this->setCurlOption(CURLOPT_SSL_VERIFYHOST, 2);
                 $this->setCurlOption(CURLOPT_CAINFO, getcwd() . $this->options['ssl']);
             }
 
             // Payload
-            if(isset($this->options['is_payload']) && $this->options['is_payload'] === true) {
+            if (isset($this->options['is_payload']) && $this->options['is_payload'] === true) {
                 // Appropriate headers for sending a JSON object
                 $this->options['request_headers'] = array_merge($this->options['request_headers'], [
                     'Content-Type: application/json',
@@ -160,7 +160,7 @@
             $this->header = $this->getCurlInfo(CURLINFO_HEADER_OUT);
 
             // Autoclose handle
-            if(!isset($this->options['autoclose']) || (isset($this->options['autoclose']) && $this->options['autoclose'] !== false)) {
+            if (!isset($this->options['autoclose']) || (isset($this->options['autoclose']) && $this->options['autoclose'] !== false)) {
                 $this->close();
             }
 
@@ -174,5 +174,4 @@
         {
             curl_close($this->ch);
         }
-
     }

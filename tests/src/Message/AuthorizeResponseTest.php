@@ -11,7 +11,6 @@ use ByTIC\Omnipay\PlatiOnline\Message\AuthorizeResponse;
  */
 class AuthorizeResponseTest extends AbstractResponseTest
 {
-
     public function testSend()
     {
         $data = require TEST_FIXTURE_PATH . '/responses/Authorize/verified.php';
@@ -26,5 +25,4 @@ class AuthorizeResponseTest extends AbstractResponseTest
         self::assertIsString($url);
         self::assertStringContainsString('cc.plationline.ro', $url);
     }
-
 }

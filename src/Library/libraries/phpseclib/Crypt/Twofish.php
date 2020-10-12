@@ -599,9 +599,9 @@ class Twofish extends Base
         return pack(
             "V4",
             $K[4] ^ $R2,
-                          $K[5] ^ $R3,
-                          $K[6] ^ $R0,
-                          $K[7] ^ $R1
+            $K[5] ^ $R3,
+            $K[6] ^ $R0,
+            $K[7] ^ $R1
         );
         // @codingStandardsIgnoreEnd
     }
@@ -658,9 +658,9 @@ class Twofish extends Base
         return pack(
             "V4",
             $K[0] ^ $R2,
-                          $K[1] ^ $R3,
-                          $K[2] ^ $R0,
-                          $K[3] ^ $R1
+            $K[1] ^ $R3,
+            $K[2] ^ $R0,
+            $K[3] ^ $R1
         );
         // @codingStandardsIgnoreEnd
     }
@@ -718,10 +718,10 @@ class Twofish extends Base
             // Generating encrypt code:
             $encrypt_block = '
                 $in = unpack("V4", $in);
-                $R0 = '.$K[0].' ^ $in[1];
-                $R1 = '.$K[1].' ^ $in[2];
-                $R2 = '.$K[2].' ^ $in[3];
-                $R3 = '.$K[3].' ^ $in[4];
+                $R0 = ' . $K[0] . ' ^ $in[1];
+                $R1 = ' . $K[1] . ' ^ $in[2];
+                $R2 = ' . $K[2] . ' ^ $in[3];
+                $R3 = ' . $K[3] . ' ^ $in[4];
             ';
             for ($ki = 7, $i = 0; $i < 8; ++$i) {
                 $encrypt_block.= '
@@ -733,9 +733,9 @@ class Twofish extends Base
                           $S1[ $R1        & 0xff] ^
                           $S2[($R1 >>  8) & 0xff] ^
                           $S3[($R1 >> 16) & 0xff];
-                    $R2^= ($t0 + $t1 + '.$K[++$ki].');
+                    $R2^= ($t0 + $t1 + ' . $K[++$ki] . ');
                     $R2 = ($R2 >> 1 & 0x7fffffff) | ($R2 << 31);
-                    $R3 = ((($R3 >> 31) & 1) | ($R3 << 1)) ^ ($t0 + ($t1 << 1) + '.$K[++$ki].');
+                    $R3 = ((($R3 >> 31) & 1) | ($R3 << 1)) ^ ($t0 + ($t1 << 1) + ' . $K[++$ki] . ');
 
                     $t0 = $S0[ $R2        & 0xff] ^
                           $S1[($R2 >>  8) & 0xff] ^
@@ -745,25 +745,25 @@ class Twofish extends Base
                           $S1[ $R3        & 0xff] ^
                           $S2[($R3 >>  8) & 0xff] ^
                           $S3[($R3 >> 16) & 0xff];
-                    $R0^= ($t0 + $t1 + '.$K[++$ki].');
+                    $R0^= ($t0 + $t1 + ' . $K[++$ki] . ');
                     $R0 = ($R0 >> 1 & 0x7fffffff) | ($R0 << 31);
-                    $R1 = ((($R1 >> 31) & 1) | ($R1 << 1)) ^ ($t0 + ($t1 << 1) + '.$K[++$ki].');
+                    $R1 = ((($R1 >> 31) & 1) | ($R1 << 1)) ^ ($t0 + ($t1 << 1) + ' . $K[++$ki] . ');
                 ';
             }
             $encrypt_block.= '
-                $in = pack("V4", '.$K[4].' ^ $R2,
-                                 '.$K[5].' ^ $R3,
-                                 '.$K[6].' ^ $R0,
-                                 '.$K[7].' ^ $R1);
+                $in = pack("V4", ' . $K[4] . ' ^ $R2,
+                                 ' . $K[5] . ' ^ $R3,
+                                 ' . $K[6] . ' ^ $R0,
+                                 ' . $K[7] . ' ^ $R1);
             ';
 
             // Generating decrypt code:
             $decrypt_block = '
                 $in = unpack("V4", $in);
-                $R0 = '.$K[4].' ^ $in[1];
-                $R1 = '.$K[5].' ^ $in[2];
-                $R2 = '.$K[6].' ^ $in[3];
-                $R3 = '.$K[7].' ^ $in[4];
+                $R0 = ' . $K[4] . ' ^ $in[1];
+                $R1 = ' . $K[5] . ' ^ $in[2];
+                $R2 = ' . $K[6] . ' ^ $in[3];
+                $R3 = ' . $K[7] . ' ^ $in[4];
             ';
             for ($ki = 40, $i = 0; $i < 8; ++$i) {
                 $decrypt_block.= '
@@ -775,9 +775,9 @@ class Twofish extends Base
                           $S1[$R1       & 0xff] ^
                           $S2[$R1 >>  8 & 0xff] ^
                           $S3[$R1 >> 16 & 0xff];
-                    $R3^= $t0 + ($t1 << 1) + '.$K[--$ki].';
+                    $R3^= $t0 + ($t1 << 1) + ' . $K[--$ki] . ';
                     $R3 = $R3 >> 1 & 0x7fffffff | $R3 << 31;
-                    $R2 = ($R2 >> 31 & 0x1 | $R2 << 1) ^ ($t0 + $t1 + '.$K[--$ki].');
+                    $R2 = ($R2 >> 31 & 0x1 | $R2 << 1) ^ ($t0 + $t1 + ' . $K[--$ki] . ');
 
                     $t0 = $S0[$R2       & 0xff] ^
                           $S1[$R2 >>  8 & 0xff] ^
@@ -787,16 +787,16 @@ class Twofish extends Base
                           $S1[$R3       & 0xff] ^
                           $S2[$R3 >>  8 & 0xff] ^
                           $S3[$R3 >> 16 & 0xff];
-                    $R1^= $t0 + ($t1 << 1) + '.$K[--$ki].';
+                    $R1^= $t0 + ($t1 << 1) + ' . $K[--$ki] . ';
                     $R1 = $R1 >> 1 & 0x7fffffff | $R1 << 31;
-                    $R0 = ($R0 >> 31 & 0x1 | $R0 << 1) ^ ($t0 + $t1 + '.$K[--$ki].');
+                    $R0 = ($R0 >> 31 & 0x1 | $R0 << 1) ^ ($t0 + $t1 + ' . $K[--$ki] . ');
                 ';
             }
             $decrypt_block.= '
-                $in = pack("V4", '.$K[0].' ^ $R2,
-                                 '.$K[1].' ^ $R3,
-                                 '.$K[2].' ^ $R0,
-                                 '.$K[3].' ^ $R1);
+                $in = pack("V4", ' . $K[0] . ' ^ $R2,
+                                 ' . $K[1] . ' ^ $R3,
+                                 ' . $K[2] . ' ^ $R0,
+                                 ' . $K[3] . ' ^ $R1);
             ';
 
             $lambda_functions[$code_hash] = $this->_createInlineCryptFunction(

@@ -41,5 +41,4 @@ class PurchaseRequest extends CommonAbstractRequest
     {
         return $this->getParameter('authorizeResponse');
     }
-
 }

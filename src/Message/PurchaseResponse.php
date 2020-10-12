@@ -36,7 +36,7 @@ class PurchaseResponse extends AbstractResponse implements RedirectResponseInter
         $url = $this->getRedirectUrlTrait();
         $lang = $this->getDataProperty('lang', 'ro');
         if ($lang == 'en') {
-            $url .= '/'.$lang;
+            $url .= '/' . $lang;
         }
 
         return $url;

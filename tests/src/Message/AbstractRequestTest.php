@@ -12,7 +12,6 @@ use Symfony\Component\HttpFoundation\Request as HttpRequest;
  */
 abstract class AbstractRequestTest extends AbstractTest
 {
-
     /**
      * @param string $class
      * @param array $data
@@ -33,7 +32,7 @@ abstract class AbstractRequestTest extends AbstractTest
     protected function newRequest($class, $httpRequest= null)
     {
         $client = $this->getHttpClient();
-        $httpRequest = $httpRequest? $httpRequest : HttpRequest::createFromGlobals();
+        $httpRequest = $httpRequest ? $httpRequest : HttpRequest::createFromGlobals();
         return new $class($client, $httpRequest);
     }
 }

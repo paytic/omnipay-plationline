@@ -1,5 +1,6 @@
 <?php
-    namespace sylouuu\Curl\Method;
+
+namespace sylouuu\Curl\Method;
 
     /**
      * Get
@@ -27,5 +28,7 @@
         /**
          * Prepare the request
          */
-        public function prepare() {}
+        public function prepare()
+        {
+        }
     }

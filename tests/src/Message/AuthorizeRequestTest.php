@@ -13,11 +13,10 @@ use ByTIC\Omnipay\PlatiOnline\Message\AuthorizeResponse;
  */
 class AuthorizeRequestTest extends AbstractRequestTest
 {
-
     public function testSend()
     {
-        $data = require TEST_FIXTURE_PATH.'/enviromentParams.php';
-        $data = array_merge($data, require TEST_FIXTURE_PATH.'/requests/Purchase/baseRequest.php');
+        $data = require TEST_FIXTURE_PATH . '/enviromentParams.php';
+        $data = array_merge($data, require TEST_FIXTURE_PATH . '/requests/Purchase/baseRequest.php');
         $data['lang'] = 'en';
         $request = $this->newRequestWithInitTest(AuthorizeRequest::class, $data);
 
@@ -41,5 +40,4 @@ class AuthorizeRequestTest extends AbstractRequestTest
         self::assertStringContainsString('john.doe@gmail.com', $body);
         self::assertStringContainsString('name="tranzID"', $body);
     }
-
 }
