@@ -6,7 +6,7 @@ use ByTIC\Omnipay\PlatiOnline\Message\AbstractRequest;
 use ByTIC\Omnipay\PlatiOnline\Tests\AbstractTest;
 use Symfony\Component\HttpFoundation\Request as HttpRequest;
 
-/**
+/**AbstractSoapRequestTrait
  * Class AbstractRequestTest
  * @package ByTIC\Omnipay\Mobilpay\Tests\Message
  */

@@ -2,12 +2,7 @@
 
 namespace ByTIC\Omnipay\PlatiOnline\Message;
 
-use ByTIC\Omnipay\Common\Message\Traits\Soap\AbstractSoapRequestTrait;
-use ByTIC\Omnipay\PlatiOnline\Utils\Urls;
-use Nip\Utility\Xml;
 use Omnipay\Common\Message\AbstractRequest as CommonAbstractRequest;
-use phpseclib\Crypt\AES;
-use phpseclib\Crypt\RSA;
 
 /**
  * Class AbstractRequest

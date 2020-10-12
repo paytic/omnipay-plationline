@@ -9,7 +9,7 @@
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 [![Build Status](https://img.shields.io/travis/bytic/omnipay-plationline/master.svg?style=flat-square)](https://travis-ci.org/bytic/framework)
 [![Quality Score](https://img.shields.io/scrutinizer/g/bytic/omnipay-plationline.svg?style=flat-square)](https://scrutinizer-ci.com/g/bytic/omnipay-plationline)
-[![StyleCI](https://styleci.io/repos/294425135/shield?branch=master)](https://styleci.io/repos/294425135)
+[![StyleCI](https://styleci.io/repos/301308506/shield?branch=master)](https://styleci.io/repos/301308506)
 [![Total Downloads](https://img.shields.io/packagist/dt/bytic/omnipay-plationline.svg?style=flat-square)](https://packagist.org/packages/bytic/omnipay-plationline)
 
 
