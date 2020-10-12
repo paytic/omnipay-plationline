@@ -26,8 +26,8 @@ class ServerCompletePurchaseResponse extends AbstractResponse
      */
     public function getContent()
     {
-        $stare1 = '<f_response_code>0</f_response_code>';
         $stare1 = '<f_response_code>1</f_response_code>';
+        $stare1 = '<f_response_code>0</f_response_code>';
 
         $content = '<?xml version="1.0" encoding="UTF-8" ?>';
         $content .= '<itsn>';
