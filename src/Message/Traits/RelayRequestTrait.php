@@ -17,12 +17,27 @@ trait RelayRequestTrait
 {
     use GatewayNotificationRequestTrait;
 
+    protected function getRelayMessage()
+    {
+        return $this->httpRequest->request->get($this->relayMessageKey);
+    }
+
+    protected function getCryptMessage()
+    {
+        return $this->httpRequest->request->get($this->cryptMessageKey);
+    }
+
+    protected function getValidationMessageUrl()
+    {
+        return Urls::$authResponseXml;
+    }
+
     /**
      * @return mixed
      */
     public function isValidNotification()
     {
-        return $this->hasPOST('F_Relay_Message', 'F_Crypt_Message');
+        return $this->hasPOST($this->relayMessageKey, $this->cryptMessageKey);
     }
 
     /**
@@ -33,9 +48,9 @@ trait RelayRequestTrait
         $this->validate('privateKey');
 
         $response = $this->decryptResponse(
-            $this->httpRequest->request->get('F_Relay_Message'),
-            $this->httpRequest->request->get('F_Crypt_Message'),
-            Urls::$authResponseXml
+            $this->getRelayMessage(),
+            $this->getCryptMessage(),
+            $this->getValidationMessageUrl()
         );
 
         return $response;

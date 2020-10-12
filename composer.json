@@ -41,6 +41,7 @@
   },
   "require": {
     "php": "^7.1",
+    "ext-simplexml": "*",
     "bytic/omnipay-common": "^3.0",
     "bytic/utility": "^1.0"
   },
