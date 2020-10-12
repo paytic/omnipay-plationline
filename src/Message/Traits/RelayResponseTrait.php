@@ -35,8 +35,8 @@ trait RelayResponseTrait
     public function getMessage()
     {
         return
-            'CODE: '. $this->getNotification()->x_response_reason_code
-            .' '. $this->getNotification()->x_response_reason_text;
+            'CODE: ' . $this->getNotification()->x_response_reason_code
+            . ' ' . $this->getNotification()->x_response_reason_text;
     }
 
     /**

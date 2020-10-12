@@ -13,7 +13,6 @@ use Symfony\Component\HttpFoundation\Request as HttpRequest;
  */
 abstract class AbstractResponseTest extends AbstractTest
 {
-
     /**
      * @param string $class Request Class
      * @param array $data

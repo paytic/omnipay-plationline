@@ -2,7 +2,6 @@
 
 namespace ByTIC\Omnipay\PlatiOnline\Utils;
 
-
 /**
  * Class Urls
  * @package ByTIC\Omnipay\PlatiOnline\Utils

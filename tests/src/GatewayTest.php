@@ -24,5 +24,4 @@ class GatewayTest extends AbstractTest
         parent::setUp();
         $this->gateway = new Gateway();
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 namespace PlatiOnline;
 
 use sylouuu\Curl\Method as Curl;
@@ -48,7 +49,7 @@ class PO5
         $curl_min_version = '7.29.0';
         $openssl_min_version = 0x1000100f; //1.0.1
         if (version_compare(phpversion(), $php_min_version, '<')) {
-            $errors[] = 'PHP version '.$php_min_version.' is needed to use PlatiOnline kit. Current PHP version: '.phpversion();
+            $errors[] = 'PHP version ' . $php_min_version . ' is needed to use PlatiOnline kit. Current PHP version: ' . phpversion();
         }
         if (!extension_loaded('soap')) {
             $errors[] = 'SOAP extension active is needed to use PlatiOnline kit. The SOAP extension is currently DISABLED!';
@@ -57,7 +58,7 @@ class PO5
             $errors[] = 'cURL extension active is needed to use PlatiOnline kit. The cURL extension is currently DISABLED!';
         }
         if (version_compare(curl_version()['version'], $curl_min_version, '<')) {
-            $errors[] = 'cURL version '.$curl_min_version.' is needed to use PlatiOnline kit. The cURL version is currently '.curl_version()['version'].'!';
+            $errors[] = 'cURL version ' . $curl_min_version . ' is needed to use PlatiOnline kit. The cURL version is currently ' . curl_version()['version'] . '!';
         }
         if (OPENSSL_VERSION_NUMBER < $openssl_min_version) {
             $errors[] = 'OpenSSL version 1.0.1 is needed to use PlatiOnline kit.';
@@ -134,7 +135,7 @@ class PO5
             $redirect_url 	= $this->get_xml_tag_content($paylink_response, 'PO_REDIRECT_URL');
             $X_TRANS_ID 	= $this->get_xml_tag_content($paylink_response, 'X_TRANS_ID');
             if (!empty($redirect_url)) {
-                header('Location: '. $redirect_url);
+                header('Location: ' . $redirect_url);
             } else {
                 throw new \Exception('ERROR: Serverul nu a intors URL-ul pentru a finaliza tranzactia!');
             }
@@ -172,7 +173,7 @@ class PO5
         } else {
             $redirect_url = $this->get_xml_tag_content($auth_response, 'PO_REDIRECT_URL');
             if (!empty($redirect_url)) {
-                header('Location: '. $redirect_url);
+                header('Location: ' . $redirect_url);
             } else {
                 throw new \Exception('ERROR: Serverul nu a intors URL-ul pentru a finaliza tranzactia!');
             }
@@ -381,7 +382,7 @@ class PO5
                 // Namespaced Classes
                 $classfile = str_replace('\\', '/', $classname);
                 if ($classname[0] !== '/') {
-                    $classfile = dirname(__FILE__).'/libraries/'.$classfile.'.php';
+                    $classfile = dirname(__FILE__) . '/libraries/' . $classfile . '.php';
                 }
                 require($classfile);
             }
@@ -411,7 +412,7 @@ class PO5
     private function setFRequest($f_request, $type, $validation_url)
     {
         // aici construiesc XML din array
-        $xml = new \SimpleXMLElement('<'.$type.'/>');
+        $xml = new \SimpleXMLElement('<' . $type . '/>');
 
         // test mode
         if ($type == 'po_auth_request') {
@@ -565,10 +566,10 @@ class PO5
         foreach ($tags as $tag) {
             $index = count($elements);
             if ($tag['type'] == "complete" || $tag['type'] == "open") {
-                $elements[$index] = new XmlElement;
-                $elements[$index]->name = isset($tag['tag'])?$tag['tag']:'';
-                $elements[$index]->attributes = isset($tag['attributes'])?$tag['attributes']:'';
-                $elements[$index]->content = isset($tag['value'])?$tag['value']:'';
+                $elements[$index] = new XmlElement();
+                $elements[$index]->name = isset($tag['tag']) ? $tag['tag'] : '';
+                $elements[$index]->attributes = isset($tag['attributes']) ? $tag['attributes'] : '';
+                $elements[$index]->content = isset($tag['value']) ? $tag['value'] : '';
                 if ($tag['type'] == "open") {  // push
                     $elements[$index]->children = array();
                     $stack[count($stack)] = &$elements;
@@ -595,4 +596,3 @@ class XmlElement
     public $content;
     public $children;
 };
-?>

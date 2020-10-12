@@ -1,5 +1,6 @@
 <?php
-    namespace sylouuu\Curl\Method;
+
+namespace sylouuu\Curl\Method;
 
     /**
      * Options

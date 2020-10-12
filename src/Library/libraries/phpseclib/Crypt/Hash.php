@@ -56,15 +56,15 @@ class Hash
     /**
      * Toggles the internal implementation
      */
-    const MODE_INTERNAL = 1;
+    public const MODE_INTERNAL = 1;
     /**
      * Toggles the mhash() implementation, which has been deprecated on PHP 5.3.0+.
      */
-    const MODE_MHASH = 2;
+    public const MODE_MHASH = 2;
     /**
      * Toggles the hash() implementation, which works on PHP 5.1.2+.
      */
-    const MODE_HASH = 3;
+    public const MODE_HASH = 3;
     /**#@-*/
 
     /**

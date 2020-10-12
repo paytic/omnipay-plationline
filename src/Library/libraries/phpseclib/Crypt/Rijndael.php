@@ -796,7 +796,7 @@ class Rijndael extends Base
                     break;
                 default:
                     for ($i = 0, $cw = count($this->w); $i < $cw; ++$i) {
-                        $w[]  = '$w['  . $i . ']';
+                        $w[]  = '$w[' . $i . ']';
                         $dw[] = '$dw[' . $i . ']';
                     }
                     $init_encrypt = '$w  = $self->w;';
@@ -825,9 +825,9 @@ class Rijndael extends Base
             $wc = $Nb - 1;
 
             // Preround: addRoundKey
-            $encrypt_block = '$in = unpack("N*", $in);'."\n";
+            $encrypt_block = '$in = unpack("N*", $in);' . "\n";
             for ($i = 0; $i < $Nb; ++$i) {
-                $encrypt_block .= '$s'.$i.' = $in['.($i + 1).'] ^ '.$w[++$wc].";\n";
+                $encrypt_block .= '$s' . $i . ' = $in[' . ($i + 1) . '] ^ ' . $w[++$wc] . ";\n";
             }
 
             // Mainrounds: shiftRows + subWord + mixColumns + addRoundKey
@@ -835,32 +835,32 @@ class Rijndael extends Base
                 list($s, $e) = array($e, $s);
                 for ($i = 0; $i < $Nb; ++$i) {
                     $encrypt_block.=
-                        '$'.$e.$i.' =
-                        $t0[($'.$s.$i                  .' >> 24) & 0xff] ^
-                        $t1[($'.$s.(($i + $c[1]) % $Nb).' >> 16) & 0xff] ^
-                        $t2[($'.$s.(($i + $c[2]) % $Nb).' >>  8) & 0xff] ^
-                        $t3[ $'.$s.(($i + $c[3]) % $Nb).'        & 0xff] ^
-                        '.$w[++$wc].";\n";
+                        '$' . $e . $i . ' =
+                        $t0[($' . $s . $i . ' >> 24) & 0xff] ^
+                        $t1[($' . $s . (($i + $c[1]) % $Nb) . ' >> 16) & 0xff] ^
+                        $t2[($' . $s . (($i + $c[2]) % $Nb) . ' >>  8) & 0xff] ^
+                        $t3[ $' . $s . (($i + $c[3]) % $Nb) . '        & 0xff] ^
+                        ' . $w[++$wc] . ";\n";
                 }
             }
 
             // Finalround: subWord + shiftRows + addRoundKey
             for ($i = 0; $i < $Nb; ++$i) {
                 $encrypt_block.=
-                    '$'.$e.$i.' =
-                     $sbox[ $'.$e.$i.'        & 0xff]        |
-                    ($sbox[($'.$e.$i.' >>  8) & 0xff] <<  8) |
-                    ($sbox[($'.$e.$i.' >> 16) & 0xff] << 16) |
-                    ($sbox[($'.$e.$i.' >> 24) & 0xff] << 24);'."\n";
+                    '$' . $e . $i . ' =
+                     $sbox[ $' . $e . $i . '        & 0xff]        |
+                    ($sbox[($' . $e . $i . ' >>  8) & 0xff] <<  8) |
+                    ($sbox[($' . $e . $i . ' >> 16) & 0xff] << 16) |
+                    ($sbox[($' . $e . $i . ' >> 24) & 0xff] << 24);' . "\n";
             }
-            $encrypt_block .= '$in = pack("N*"'."\n";
+            $encrypt_block .= '$in = pack("N*"' . "\n";
             for ($i = 0; $i < $Nb; ++$i) {
                 $encrypt_block.= ',
-                    ($'.$e.$i                  .' & '.((int)0xFF000000).') ^
-                    ($'.$e.(($i + $c[1]) % $Nb).' &         0x00FF0000   ) ^
-                    ($'.$e.(($i + $c[2]) % $Nb).' &         0x0000FF00   ) ^
-                    ($'.$e.(($i + $c[3]) % $Nb).' &         0x000000FF   ) ^
-                    '.$w[$i]."\n";
+                    ($' . $e . $i . ' & ' . ((int)0xFF000000) . ') ^
+                    ($' . $e . (($i + $c[1]) % $Nb) . ' &         0x00FF0000   ) ^
+                    ($' . $e . (($i + $c[2]) % $Nb) . ' &         0x0000FF00   ) ^
+                    ($' . $e . (($i + $c[3]) % $Nb) . ' &         0x000000FF   ) ^
+                    ' . $w[$i] . "\n";
             }
             $encrypt_block .= ');';
 
@@ -882,9 +882,9 @@ class Rijndael extends Base
             $wc = $Nb - 1;
 
             // Preround: addRoundKey
-            $decrypt_block = '$in = unpack("N*", $in);'."\n";
+            $decrypt_block = '$in = unpack("N*", $in);' . "\n";
             for ($i = 0; $i < $Nb; ++$i) {
-                $decrypt_block .= '$s'.$i.' = $in['.($i + 1).'] ^ '.$dw[++$wc].';'."\n";
+                $decrypt_block .= '$s' . $i . ' = $in[' . ($i + 1) . '] ^ ' . $dw[++$wc] . ';' . "\n";
             }
 
             // Mainrounds: shiftRows + subWord + mixColumns + addRoundKey
@@ -892,32 +892,32 @@ class Rijndael extends Base
                 list($s, $e) = array($e, $s);
                 for ($i = 0; $i < $Nb; ++$i) {
                     $decrypt_block.=
-                        '$'.$e.$i.' =
-                        $dt0[($'.$s.$i                        .' >> 24) & 0xff] ^
-                        $dt1[($'.$s.(($Nb + $i - $c[1]) % $Nb).' >> 16) & 0xff] ^
-                        $dt2[($'.$s.(($Nb + $i - $c[2]) % $Nb).' >>  8) & 0xff] ^
-                        $dt3[ $'.$s.(($Nb + $i - $c[3]) % $Nb).'        & 0xff] ^
-                        '.$dw[++$wc].";\n";
+                        '$' . $e . $i . ' =
+                        $dt0[($' . $s . $i . ' >> 24) & 0xff] ^
+                        $dt1[($' . $s . (($Nb + $i - $c[1]) % $Nb) . ' >> 16) & 0xff] ^
+                        $dt2[($' . $s . (($Nb + $i - $c[2]) % $Nb) . ' >>  8) & 0xff] ^
+                        $dt3[ $' . $s . (($Nb + $i - $c[3]) % $Nb) . '        & 0xff] ^
+                        ' . $dw[++$wc] . ";\n";
                 }
             }
 
             // Finalround: subWord + shiftRows + addRoundKey
             for ($i = 0; $i < $Nb; ++$i) {
                 $decrypt_block.=
-                    '$'.$e.$i.' =
-                     $isbox[ $'.$e.$i.'        & 0xff]        |
-                    ($isbox[($'.$e.$i.' >>  8) & 0xff] <<  8) |
-                    ($isbox[($'.$e.$i.' >> 16) & 0xff] << 16) |
-                    ($isbox[($'.$e.$i.' >> 24) & 0xff] << 24);'."\n";
+                    '$' . $e . $i . ' =
+                     $isbox[ $' . $e . $i . '        & 0xff]        |
+                    ($isbox[($' . $e . $i . ' >>  8) & 0xff] <<  8) |
+                    ($isbox[($' . $e . $i . ' >> 16) & 0xff] << 16) |
+                    ($isbox[($' . $e . $i . ' >> 24) & 0xff] << 24);' . "\n";
             }
-            $decrypt_block .= '$in = pack("N*"'."\n";
+            $decrypt_block .= '$in = pack("N*"' . "\n";
             for ($i = 0; $i < $Nb; ++$i) {
                 $decrypt_block.= ',
-                    ($'.$e.$i.                        ' & '.((int)0xFF000000).') ^
-                    ($'.$e.(($Nb + $i - $c[1]) % $Nb).' &         0x00FF0000   ) ^
-                    ($'.$e.(($Nb + $i - $c[2]) % $Nb).' &         0x0000FF00   ) ^
-                    ($'.$e.(($Nb + $i - $c[3]) % $Nb).' &         0x000000FF   ) ^
-                    '.$dw[$i]."\n";
+                    ($' . $e . $i . ' & ' . ((int)0xFF000000) . ') ^
+                    ($' . $e . (($Nb + $i - $c[1]) % $Nb) . ' &         0x00FF0000   ) ^
+                    ($' . $e . (($Nb + $i - $c[2]) % $Nb) . ' &         0x0000FF00   ) ^
+                    ($' . $e . (($Nb + $i - $c[3]) % $Nb) . ' &         0x000000FF   ) ^
+                    ' . $dw[$i] . "\n";
             }
             $decrypt_block .= ');';
 

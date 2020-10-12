@@ -72,23 +72,23 @@ class BigInteger
      * @see BigInteger::_montgomery()
      * @see BigInteger::_prepMontgomery()
      */
-    const MONTGOMERY = 0;
+    public const MONTGOMERY = 0;
     /**
      * @see BigInteger::_barrett()
      */
-    const BARRETT = 1;
+    public const BARRETT = 1;
     /**
      * @see BigInteger::_mod2()
      */
-    const POWEROF2 = 2;
+    public const POWEROF2 = 2;
     /**
      * @see BigInteger::_remainder()
      */
-    const CLASSIC = 3;
+    public const CLASSIC = 3;
     /**
      * @see BigInteger::__clone()
      */
-    const NONE = 4;
+    public const NONE = 4;
     /**#@-*/
 
     /**#@+
@@ -102,11 +102,11 @@ class BigInteger
     /**
      * $result[self::VALUE] contains the value.
      */
-    const VALUE = 0;
+    public const VALUE = 0;
     /**
      * $result[self::SIGN] contains the sign.
      */
-    const SIGN = 1;
+    public const SIGN = 1;
     /**#@-*/
 
     /**#@+
@@ -119,11 +119,11 @@ class BigInteger
      *
      * $cache[self::VARIABLE] tells us whether or not the cached data is still valid.
      */
-    const VARIABLE = 0;
+    public const VARIABLE = 0;
     /**
      * $cache[self::DATA] contains the cached data.
      */
-    const DATA = 1;
+    public const DATA = 1;
     /**#@-*/
 
     /**#@+
@@ -135,19 +135,19 @@ class BigInteger
     /**
      * To use the pure-PHP implementation
      */
-    const MODE_INTERNAL = 1;
+    public const MODE_INTERNAL = 1;
     /**
      * To use the BCMath library
      *
      * (if enabled; otherwise, the internal implementation will be used)
      */
-    const MODE_BCMATH = 2;
+    public const MODE_BCMATH = 2;
     /**
      * To use the GMP library
      *
      * (if present; otherwise, either the BCMath or the internal implementation will be used)
      */
-    const MODE_GMP = 3;
+    public const MODE_GMP = 3;
     /**#@-*/
 
     /**
@@ -157,7 +157,7 @@ class BigInteger
      *
      * @access private
      */
-    const KARATSUBA_CUTOFF = 25;
+    public const KARATSUBA_CUTOFF = 25;
 
     /**#@+
      * Static properties used by the pure-PHP implementation.
