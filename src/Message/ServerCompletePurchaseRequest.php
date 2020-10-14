@@ -40,13 +40,12 @@ class ServerCompletePurchaseRequest extends AbstractRequest
         $request['f_action'] = 0;
 
         $response = $this->runSoapRequest($soapClient, $request, 'po_query');
-        return [
-            'notification' => [
-                'order' => $response->order,
-                'transaction' => $response->order->tranzaction,
-                'payment_token' => $response->po_payment_token
-            ]
+        $data['notification'] = [
+            'order' => $response->order,
+            'transaction' => $response->order->tranzaction,
+            'payment_token' => $response->po_payment_token
         ];
+        return $data;
     }
 
     protected function getValidationMessageUrl()
