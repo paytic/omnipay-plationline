@@ -35,11 +35,12 @@ class ServerCompletePurchaseRequestTest extends AbstractRequestTest
 
         self::assertInstanceOf(ServerCompletePurchaseResponse::class, $response);
 
-        self::assertFalse($response->isSuccessful());
+        self::assertTrue($response->isSuccessful());
         self::assertFalse($response->isPending());
         self::assertFalse($response->isCancelled());
 
         self::assertSame('6917422', $response->getTransactionReference());
+        self::assertSame('172315', $response->getTransactionId());
         self::assertSame('172315', $response->getTransactionId());
     }
 }

@@ -32,7 +32,7 @@ class Urls
     public static $queryXml = 'https://secure.plationline.ro/xml_validation/f_message.query.v5.xsd';
 
     // query response
-    public static $itsnResponseXml = 'https://secure.plationline.ro/xml_validation/query.response.v5.xsd';
+    public static $queryResponseXml = 'https://secure.plationline.ro/xml_validation/query.response.v5.xsd';
 
     // query by date
     public static $queryByDateXml = 'https://secure.plationline.ro/xml_validation/f_message.query-by-date.v5.xsd';
