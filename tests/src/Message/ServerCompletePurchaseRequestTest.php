@@ -1,14 +1,14 @@
 <?php
 
-namespace ByTIC\Omnipay\PlatiOnline\Tests\Message;
+namespace Paytic\Omnipay\PlatiOnline\Tests\Message;
 
-use ByTIC\Omnipay\PlatiOnline\Message\ServerCompletePurchaseRequest;
-use ByTIC\Omnipay\PlatiOnline\Message\ServerCompletePurchaseResponse;
+use Paytic\Omnipay\PlatiOnline\Message\ServerCompletePurchaseRequest;
+use Paytic\Omnipay\PlatiOnline\Message\ServerCompletePurchaseResponse;
 use Symfony\Component\HttpFoundation\Request as HttpRequest;
 
 /**
  * Class CompletePurchaseRequestTest
- * @package ByTIC\Omnipay\PlatiOnline\Tests\Message
+ * @package Paytic\Omnipay\PlatiOnline\Tests\Message
  */
 class ServerCompletePurchaseRequestTest extends AbstractRequestTest
 {

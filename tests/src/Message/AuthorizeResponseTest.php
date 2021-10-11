@@ -1,13 +1,13 @@
 <?php
 
-namespace ByTIC\Omnipay\PlatiOnline\Tests\Message;
+namespace Paytic\Omnipay\PlatiOnline\Tests\Message;
 
-use ByTIC\Omnipay\PlatiOnline\Message\AuthorizeRequest;
-use ByTIC\Omnipay\PlatiOnline\Message\AuthorizeResponse;
+use Paytic\Omnipay\PlatiOnline\Message\AuthorizeRequest;
+use Paytic\Omnipay\PlatiOnline\Message\AuthorizeResponse;
 
 /**
  * Class AuthorizeResponseTest
- * @package ByTIC\Omnipay\PlatiOnline\Tests\Message
+ * @package Paytic\Omnipay\PlatiOnline\Tests\Message
  */
 class AuthorizeResponseTest extends AbstractResponseTest
 {

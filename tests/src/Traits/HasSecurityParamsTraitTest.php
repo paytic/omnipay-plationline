@@ -1,13 +1,13 @@
 <?php
 
-namespace ByTIC\Omnipay\PlatiOnline\Tests\Traits;
+namespace Paytic\Omnipay\PlatiOnline\Tests\Traits;
 
-use ByTIC\Omnipay\PlatiOnline\Gateway;
-use ByTIC\Omnipay\PlatiOnline\Tests\AbstractTest;
+use Paytic\Omnipay\PlatiOnline\Gateway;
+use Paytic\Omnipay\PlatiOnline\Tests\AbstractTest;
 
 /**
  * Class HasSecurityParamsTraitTest
- * @package ByTIC\Omnipay\PlatiOnline\Tests\Tests
+ * @package Paytic\Omnipay\PlatiOnline\Tests\Tests
  */
 class HasSecurityParamsTraitTest extends AbstractTest
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace ByTIC\Omnipay\PlatiOnline\Tests;
+namespace Paytic\Omnipay\PlatiOnline\Tests;
 
 use PHPUnit\Framework\TestCase as PHPUnitTestCase;
 use Omnipay\Tests\Traits\HasClientLiveTrait;

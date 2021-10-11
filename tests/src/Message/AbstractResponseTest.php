@@ -1,9 +1,9 @@
 <?php
 
-namespace ByTIC\Omnipay\PlatiOnline\Tests\Message;
+namespace Paytic\Omnipay\PlatiOnline\Tests\Message;
 
-use ByTIC\Omnipay\PlatiOnline\Message\AbstractRequest;
-use ByTIC\Omnipay\PlatiOnline\Tests\AbstractTest;
+use Paytic\Omnipay\PlatiOnline\Message\AbstractRequest;
+use Paytic\Omnipay\PlatiOnline\Tests\AbstractTest;
 use Omnipay\Common\Message\AbstractResponse;
 use Symfony\Component\HttpFoundation\Request as HttpRequest;
 
