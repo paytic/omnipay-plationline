@@ -1,12 +1,12 @@
 <?php
 
-namespace ByTIC\Omnipay\PlatiOnline\Message;
+namespace Paytic\Omnipay\PlatiOnline\Message;
 
 use Omnipay\Common\Message\AbstractRequest as CommonAbstractRequest;
 
 /**
  * Class PurchaseRequest
- * @package ByTIC\Omnipay\PlatiOnline\Message
+ * @package Paytic\Omnipay\PlatiOnline\Message
  *
  * @method PurchaseResponse send()
  */

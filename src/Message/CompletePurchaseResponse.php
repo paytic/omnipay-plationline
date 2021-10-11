@@ -1,12 +1,12 @@
 <?php
 
-namespace ByTIC\Omnipay\PlatiOnline\Message;
+namespace Paytic\Omnipay\PlatiOnline\Message;
 
 use ByTIC\Omnipay\Common\Message\Traits\HtmlResponses\ConfirmHtmlTrait;
 
 /**
  * Class CompletePurchaseResponse
- * @package ByTIC\Omnipay\PlatiOnline\Message
+ * @package Paytic\Omnipay\PlatiOnline\Message
  */
 class CompletePurchaseResponse extends AbstractResponse
 {

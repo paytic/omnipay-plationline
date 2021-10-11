@@ -1,12 +1,12 @@
 <?php
 
-namespace ByTIC\Omnipay\PlatiOnline\Traits;
+namespace Paytic\Omnipay\PlatiOnline\Traits;
 
 use Omnipay\Common\Message\AbstractRequest as CommonAbstractRequest;
 
 /**
  * Trait HasSecurityParamsTrait
- * @package ByTIC\Omnipay\PlatiOnline\Traits
+ * @package Paytic\Omnipay\PlatiOnline\Traits
  */
 trait HasSecurityParamsTrait
 {

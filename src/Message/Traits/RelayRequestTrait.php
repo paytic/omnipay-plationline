@@ -1,9 +1,9 @@
 <?php
 
-namespace ByTIC\Omnipay\PlatiOnline\Message\Traits;
+namespace Paytic\Omnipay\PlatiOnline\Message\Traits;
 
 use ByTIC\Omnipay\Common\Message\Traits\GatewayNotificationRequestTrait;
-use ByTIC\Omnipay\PlatiOnline\Utils\Urls;
+use Paytic\Omnipay\PlatiOnline\Utils\Urls;
 use Nip\Utility\Str;
 use Nip\Utility\Xml;
 use phpseclib\Crypt\AES;
@@ -11,7 +11,7 @@ use phpseclib\Crypt\RSA;
 
 /**
  * Trait RelayRequestTrait
- * @package ByTIC\Omnipay\PlatiOnline\Message\Traits
+ * @package Paytic\Omnipay\PlatiOnline\Message\Traits
  */
 trait RelayRequestTrait
 {

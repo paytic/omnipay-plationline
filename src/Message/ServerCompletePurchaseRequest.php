@@ -1,12 +1,12 @@
 <?php
 
-namespace ByTIC\Omnipay\PlatiOnline\Message;
+namespace Paytic\Omnipay\PlatiOnline\Message;
 
-use ByTIC\Omnipay\PlatiOnline\Utils\Urls;
+use Paytic\Omnipay\PlatiOnline\Utils\Urls;
 
 /**
  * Class ServerCompletePurchaseRequest
- * @package ByTIC\Omnipay\PlatiOnline\Message
+ * @package Paytic\Omnipay\PlatiOnline\Message
  *
  * @method ServerCompletePurchaseResponse send()
  */

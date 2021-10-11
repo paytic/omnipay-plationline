@@ -1,10 +1,10 @@
 <?php
 
-namespace ByTIC\Omnipay\PlatiOnline\Message;
+namespace Paytic\Omnipay\PlatiOnline\Message;
 
 /**
  * Class ServerCompletePurchaseResponse
- * @package ByTIC\Omnipay\PlatiOnline\Message
+ * @package Paytic\Omnipay\PlatiOnline\Message
  */
 class ServerCompletePurchaseResponse extends AbstractResponse
 {

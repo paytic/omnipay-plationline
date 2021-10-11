@@ -1,10 +1,10 @@
 <?php
 
-namespace ByTIC\Omnipay\PlatiOnline\Utils;
+namespace Paytic\Omnipay\PlatiOnline\Utils;
 
 /**
  * Class Urls
- * @package ByTIC\Omnipay\PlatiOnline\Utils
+ * @package Paytic\Omnipay\PlatiOnline\Utils
  */
 class Urls
 {

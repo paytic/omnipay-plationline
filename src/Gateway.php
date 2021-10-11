@@ -1,20 +1,20 @@
 <?php
 
-namespace ByTIC\Omnipay\PlatiOnline;
+namespace Paytic\Omnipay\PlatiOnline;
 
-use ByTIC\Omnipay\PlatiOnline\Message\AuthorizeRequest;
-use ByTIC\Omnipay\PlatiOnline\Message\AuthorizeResponse;
-use ByTIC\Omnipay\PlatiOnline\Message\CompletePurchaseRequest;
-use ByTIC\Omnipay\PlatiOnline\Message\PurchaseRequest;
-use ByTIC\Omnipay\PlatiOnline\Message\ServerCompletePurchaseRequest;
-use ByTIC\Omnipay\PlatiOnline\Traits\HasSecurityParamsTrait;
+use Paytic\Omnipay\PlatiOnline\Message\AuthorizeRequest;
+use Paytic\Omnipay\PlatiOnline\Message\AuthorizeResponse;
+use Paytic\Omnipay\PlatiOnline\Message\CompletePurchaseRequest;
+use Paytic\Omnipay\PlatiOnline\Message\PurchaseRequest;
+use Paytic\Omnipay\PlatiOnline\Message\ServerCompletePurchaseRequest;
+use Paytic\Omnipay\PlatiOnline\Traits\HasSecurityParamsTrait;
 use Omnipay\Common\AbstractGateway;
 use Omnipay\Common\Message\NotificationInterface;
 use Omnipay\Common\Message\RequestInterface;
 
 /**
  * Class Gateway
- * @package ByTIC\Omnipay\PlatiOnline
+ * @package Paytic\Omnipay\PlatiOnline
  *
  * @method RequestInterface capture(array $options = [])
  * @method RequestInterface completeAuthorize(array $options = [])

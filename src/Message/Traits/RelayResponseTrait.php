@@ -1,12 +1,12 @@
 <?php
 
-namespace ByTIC\Omnipay\PlatiOnline\Message\Traits;
+namespace Paytic\Omnipay\PlatiOnline\Message\Traits;
 
 use SimpleXMLElement;
 
 /**
  * Trait RelayResponseTrait
- * @package ByTIC\Omnipay\PlatiOnline\Message\Traits
+ * @package Paytic\Omnipay\PlatiOnline\Message\Traits
  */
 trait RelayResponseTrait
 {

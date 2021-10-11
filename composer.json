@@ -1,5 +1,5 @@
 {
-  "name": "bytic/omnipay-plationline",
+  "name": "paytic/omnipay-plationline",
   "type": "library",
   "license": "MIT",
   "description": "PlatiOnline driver for ThePhpLeague Omnipay multi-payment processing library",
@@ -12,7 +12,7 @@
     "pay",
     "payment"
   ],
-  "homepage": "https://github.com/ByTIC/omnipay-plationline",
+  "homepage": "https://github.com/paytic/omnipay-plationline",
   "authors": [
     {
       "name": "Gabriel Solomon",
@@ -27,7 +27,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "ByTIC\\Omnipay\\PlatiOnline\\": "src/"
+      "Paytic\\Omnipay\\PlatiOnline\\": "src/"
     },
     "classmap": [
       "src/Library"
@@ -35,8 +35,8 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "ByTIC\\Omnipay\\PlatiOnline\\Tests\\Fixtures\\": "tests/fixtures",
-      "ByTIC\\Omnipay\\PlatiOnline\\Tests\\": "tests/src"
+      "Paytic\\Omnipay\\PlatiOnline\\Tests\\Fixtures\\": "tests/fixtures",
+      "Paytic\\Omnipay\\PlatiOnline\\Tests\\": "tests/src"
     }
   },
   "require": {

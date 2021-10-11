@@ -1,10 +1,10 @@
 <?php
 
-namespace ByTIC\Omnipay\PlatiOnline;
+namespace Paytic\Omnipay\PlatiOnline;
 
 /**
  * Class Helper
- * @package ByTIC\Omnipay\PlatiOnline
+ * @package Paytic\Omnipay\PlatiOnline
  */
 class Helper
 {

@@ -1,14 +1,14 @@
 <?php
 
-namespace ByTIC\Omnipay\PlatiOnline\Message;
+namespace Paytic\Omnipay\PlatiOnline\Message;
 
-use ByTIC\Omnipay\PlatiOnline\Utils\Urls;
+use Paytic\Omnipay\PlatiOnline\Utils\Urls;
 use Omnipay\Common\Item;
 use Omnipay\Common\ItemBag;
 
 /**
  * Class AuthorizeRequest
- * @package ByTIC\Omnipay\PlatiOnline\Message
+ * @package Paytic\Omnipay\PlatiOnline\Message
  *
  * @method AuthorizeResponse send
  */
