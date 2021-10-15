@@ -94,7 +94,15 @@ class ServerCompletePurchaseResponse extends AbstractResponse
      */
     public function isSuccessful()
     {
-        return $this->getStatus1() == 2;
+        if ($this->getStatus1() == 2) {
+            return true;
+        }
+
+        if ($this->getStatus1() == 5 && $this->getStatus2() == 4) {
+            return true;
+        }
+
+        return false;
     }
 
     /**
@@ -108,8 +116,18 @@ class ServerCompletePurchaseResponse extends AbstractResponse
     /**
      * @inheritdoc
      */
-    public function isCancelled()
+    public function isCancelled(): bool
     {
-        return $this->getStatus1() == 9;
+        $canceledStatuses = [
+            6, // Pending void
+            7, // Transaction voided
+            9, // Transaction expired in 5/7/30 days (according to MasterCardVisa)
+        ];
+        foreach ($canceledStatuses as $status) {
+            if ($this->getStatus1() == $status) {
+                return true;
+            }
+        }
+        return false;
     }
 }
