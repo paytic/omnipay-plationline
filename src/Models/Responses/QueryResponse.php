@@ -2,9 +2,10 @@
 
 namespace Paytic\Omnipay\PlatiOnline\Models\Responses;
 
+use JsonSerializable;
 use SimpleXMLElement;
 
-class QueryResponse
+class QueryResponse implements JsonSerializable
 {
     /**
      * @var SimpleXMLElement
@@ -40,5 +41,13 @@ class QueryResponse
     public function getTransactionReference(): string
     {
         return (string)$this->data->order->tranzaction->x_trans_id;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function jsonSerialize()
+    {
+        return $this->data;
     }
 }
