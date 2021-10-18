@@ -2,9 +2,13 @@
 
 namespace Paytic\Omnipay\PlatiOnline\Message;
 
+use Paytic\Omnipay\PlatiOnline\Models\Responses\QueryResponse;
+
 /**
  * Class ServerCompletePurchaseResponse
  * @package Paytic\Omnipay\PlatiOnline\Message
+ *
+ * @method QueryResponse getNotification()
  */
 class ServerCompletePurchaseResponse extends AbstractResponse
 {
@@ -50,7 +54,7 @@ class ServerCompletePurchaseResponse extends AbstractResponse
      */
     public function getTransactionReference()
     {
-        return (string)$this->getNotification()['transaction']->x_trans_id;
+        return $this->getNotification()->getTransactionReference();
     }
 
     /**
@@ -59,7 +63,7 @@ class ServerCompletePurchaseResponse extends AbstractResponse
      */
     public function getTransactionId()
     {
-        return (string)$this->getNotification()['order']->f_order_number;
+        return $this->getNotification()->getTransactionId();
     }
 
     public function getMessage()
@@ -73,7 +77,7 @@ class ServerCompletePurchaseResponse extends AbstractResponse
     public function getStatus1()
     {
         if ($this->hasDataProperty('status1') === false) {
-            $this->data['status1'] = (string)$this->getNotification()['transaction']->status_fin1->code;
+            $this->data['status1'] = (string) $this->getNotification()->getStatus1();
         }
         return $this->getDataProperty('status1');
     }
@@ -84,7 +88,7 @@ class ServerCompletePurchaseResponse extends AbstractResponse
     public function getStatus2()
     {
         if ($this->hasDataProperty('status2') === false) {
-            $this->data['status2'] = (string)$this->getNotification()['transaction']->status_fin2->code;
+            $this->data['status2'] = (string) $this->getNotification()->getStatus2();
         }
         return $this->getDataProperty('status2');
     }
@@ -94,11 +98,17 @@ class ServerCompletePurchaseResponse extends AbstractResponse
      */
     public function isSuccessful()
     {
+        $status1 = $this->getStatus1();
+        $status2 = $this->getStatus2();
         if ($this->getStatus1() == 2) {
             return true;
         }
 
-        if ($this->getStatus1() == 5 && $this->getStatus2() == 4) {
+        if ($status1 == 3 && $status2 == 4) {
+            return true;
+        }
+
+        if ($status1 == 5 && $status2 == 4) {
             return true;
         }
 
@@ -110,7 +120,7 @@ class ServerCompletePurchaseResponse extends AbstractResponse
      */
     public function isPending()
     {
-        return $this->getStatus1() == 1 || $this->getStatus1() == 3;
+        return $this->getStatus1() == 1;
     }
 
     /**

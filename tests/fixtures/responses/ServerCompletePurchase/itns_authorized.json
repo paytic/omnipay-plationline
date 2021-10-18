@@ -1,0 +1,50 @@
+{
+  "po_error_code": "0",
+  "po_error_reason": "Operatiunea de interogare s-a realizat cu succes!",
+  "order": {
+    "f_order_number": "172315",
+    "tranzaction": {
+      "f_login": "DEMO CLUBUL SPORTIV YZO GYM",
+      "f_website": {},
+      "f_test_request": "1",
+      "x_time_stamp": "2020-10-08T13:39:33+03:00",
+      "f_amount": "3.00",
+      "f_currency": "RON",
+      "x_auth_code": {},
+      "f_ip": "5.12.17.68",
+      "status_fin1": {
+        "code": "2",
+        "timestamp": "2020-10-08T13:40:03+03:00"
+      },
+      "status_fin2": {
+        "code": "4",
+        "timestamp": "2020-10-08T13:39:33+03:00"
+      },
+      "status_cc": {
+        "code": "11",
+        "timestamp": "2020-10-08T13:39:33+03:00"
+      },
+      "status_security": {
+        "code": "3",
+        "timestamp": "2020-10-08T13:39:33+03:00"
+      },
+      "status_sc": {
+        "code": "2",
+        "timestamp": "2020-10-08T13:39:33+03:00"
+      },
+      "f_shipping_company": "-",
+      "f_awb": "-",
+      "f_cc_type": "CC",
+      "f_cc_issuer": "MasterCard",
+      "x_trans_id": "6917422",
+      "x_rrn": {}
+    }
+  },
+  "po_payment_token": {
+    "cc_6x4": "512121",
+    "cc_issuer_name": "Plati online test card",
+    "cc_issuer_country": "RO",
+    "f_first_name": "Gabriel",
+    "f_last_name": "Solomon"
+  }
+}

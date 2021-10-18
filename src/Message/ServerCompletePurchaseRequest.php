@@ -2,6 +2,7 @@
 
 namespace Paytic\Omnipay\PlatiOnline\Message;
 
+use Paytic\Omnipay\PlatiOnline\Models\Responses\QueryResponse;
 use Paytic\Omnipay\PlatiOnline\Utils\Urls;
 
 /**
@@ -40,11 +41,8 @@ class ServerCompletePurchaseRequest extends AbstractRequest
         $request['f_action'] = 0;
 
         $response = $this->runSoapRequest($soapClient, $request, 'po_query');
-        $data['notification'] = [
-            'order' => $response->order,
-            'transaction' => $response->order->tranzaction,
-            'payment_token' => $response->po_payment_token
-        ];
+
+        $data['notification'] = QueryResponse::fromXml($response);
         return $data;
     }
 
