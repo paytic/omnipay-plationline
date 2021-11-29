@@ -19,12 +19,6 @@
       "email": "hello@gabrielsolomon.ro"
     }
   ],
-  "repositories": [
-    {
-      "type": "git",
-      "url": "https://github.com/bytic/omnipay-tests"
-    }
-  ],
   "autoload": {
     "psr-4": {
       "Paytic\\Omnipay\\PlatiOnline\\": "src/"
@@ -40,14 +34,14 @@
     }
   },
   "require": {
-    "php": "^7.1",
+    "php": "^7.1|^8.0",
     "ext-simplexml": "*",
     "bytic/omnipay-common": "^3.0",
     "bytic/utility": "^1.0"
   },
   "require-dev": {
     "ext-json": "*",
-    "omnipay/tests": "dev-master",
+    "omnipay/tests": "^3.0|^4.0",
     "phpunit/phpunit": "^8.0|^9.0",
     "mockery/mockery": "^1.0",
     "vlucas/phpdotenv": "^4.0",
