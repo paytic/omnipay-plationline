@@ -13,7 +13,7 @@ use phpseclib\Crypt\RSA;
  */
 trait HasSoapRequestTrait
 {
-    use \ByTIC\Omnipay\Common\Message\Traits\Soap\AbstractSoapRequestTrait;
+    use \Paytic\Omnipay\Common\Message\Traits\Soap\AbstractSoapRequestTrait;
 
     /**
      * @inheritDoc

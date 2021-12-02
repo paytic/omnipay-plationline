@@ -2,7 +2,7 @@
 
 namespace Paytic\Omnipay\PlatiOnline\Message;
 
-use ByTIC\Omnipay\Common\Message\Traits\RedirectHtmlTrait;
+use Paytic\Omnipay\Common\Message\Traits\RedirectHtmlTrait;
 use Omnipay\Common\Message\RedirectResponseInterface;
 
 /**

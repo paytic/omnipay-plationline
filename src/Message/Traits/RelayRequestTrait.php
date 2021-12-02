@@ -2,7 +2,7 @@
 
 namespace Paytic\Omnipay\PlatiOnline\Message\Traits;
 
-use ByTIC\Omnipay\Common\Message\Traits\GatewayNotificationRequestTrait;
+use Paytic\Omnipay\Common\Message\Traits\GatewayNotificationRequestTrait;
 use Paytic\Omnipay\PlatiOnline\Utils\Urls;
 use Nip\Utility\Str;
 use Nip\Utility\Xml;

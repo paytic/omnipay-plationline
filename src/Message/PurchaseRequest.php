@@ -12,9 +12,9 @@ use Omnipay\Common\Message\AbstractRequest as CommonAbstractRequest;
  */
 class PurchaseRequest extends CommonAbstractRequest
 {
-    use \ByTIC\Omnipay\Common\Message\Traits\ParametersTrait;
-    use \ByTIC\Omnipay\Common\Message\Traits\HasLanguageRequestTrait;
-    use \ByTIC\Omnipay\Common\Message\Traits\SendDataRequestTrait;
+    use \Paytic\Omnipay\Common\Message\Traits\ParametersTrait;
+    use \Paytic\Omnipay\Common\Message\Traits\HasLanguageRequestTrait;
+    use \Paytic\Omnipay\Common\Message\Traits\SendDataRequestTrait;
 
     /**
      * @inheritDoc

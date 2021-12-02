@@ -36,7 +36,7 @@
   "require": {
     "php": "^7.1|^8.0",
     "ext-simplexml": "*",
-    "bytic/omnipay-common": "^3.0",
+    "paytic/omnipay-common": "^3.0",
     "bytic/utility": "^1.0"
   },
   "require-dev": {
