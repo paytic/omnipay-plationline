@@ -14,7 +14,7 @@ class QueryResponseTest extends AbstractTest
 {
     public function test_fromXML()
     {
-        $data = json_decode(file_get_contents(TEST_FIXTURE_PATH.'/responses/ServerCompletePurchase/itns_authorized.json'), true);
+        $data = json_decode(file_get_contents(TEST_FIXTURE_PATH . '/responses/ServerCompletePurchase/itns_authorized.json'), true);
 
         $xml = Xml::fromArray(['notification' => $data]);
 
@@ -26,7 +26,7 @@ class QueryResponseTest extends AbstractTest
 
     public function test_json_encode()
     {
-        $json = file_get_contents(TEST_FIXTURE_PATH.'/responses/ServerCompletePurchase/itns_authorized.json');
+        $json = file_get_contents(TEST_FIXTURE_PATH . '/responses/ServerCompletePurchase/itns_authorized.json');
         $data = json_decode($json, true);
 
         $xml = Xml::fromArray(['notification' => $data]);

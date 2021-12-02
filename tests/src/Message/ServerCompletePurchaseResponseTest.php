@@ -16,8 +16,11 @@ class ServerCompletePurchaseResponseTest extends AbstractResponseTest
      */
     public function test_success_flags($data, $isSuccessful, $isPending, $isCancelled)
     {
-        $response = $this->newResponse(ServerCompletePurchaseResponse::class, ServerCompletePurchaseRequest::class,
-            $data);
+        $response = $this->newResponse(
+            ServerCompletePurchaseResponse::class,
+            ServerCompletePurchaseRequest::class,
+            $data
+        );
 
         self::assertSame($isSuccessful, $response->isSuccessful());
         self::assertSame($isPending, $response->isPending());
