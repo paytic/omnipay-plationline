@@ -37,7 +37,8 @@
     "php": "^7.1|^8.0",
     "ext-simplexml": "*",
     "paytic/omnipay-common": "^3.0",
-    "bytic/utility": "^1.0"
+    "bytic/utility": "^1.0",
+    "http-interop/http-factory-guzzle": "^1.2"
   },
   "require-dev": {
     "ext-json": "*",
@@ -47,5 +48,10 @@
     "vlucas/phpdotenv": "^4.0",
     "php-http/mock-client": "^1.1",
     "php-http/guzzle6-adapter": "^1.1.1|^2"
+  },
+  "config": {
+    "allow-plugins": {
+      "php-http/discovery": true
+    }
   }
 }

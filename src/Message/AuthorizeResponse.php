@@ -13,9 +13,8 @@ class AuthorizeResponse extends AbstractResponse
      */
     public function getRedirectUrl()
     {
-        return (string) $this->data->po_redirect_url;
+        return (string) $this->getDataProperty('po_redirect_url');
     }
-
 
     /**
      * @inheritdoc
@@ -30,7 +29,7 @@ class AuthorizeResponse extends AbstractResponse
      */
     public function getMessage()
     {
-        return (string) $this->data->po_error_reason;
+        return (string) $this->getDataProperty('po_error_reason');
     }
 
     /**
@@ -38,7 +37,7 @@ class AuthorizeResponse extends AbstractResponse
      */
     public function getCode()
     {
-        return (string) $this->data->po_error_code;
+        return (string) $this->getDataProperty('po_error_code');
     }
 
     /**
@@ -46,6 +45,6 @@ class AuthorizeResponse extends AbstractResponse
      */
     public function getTransactionReference()
     {
-        return (string) $this->data->x_trans_id;
+        return (string) $this->getDataProperty('x_trans_id');
     }
 }
