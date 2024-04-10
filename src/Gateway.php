@@ -8,7 +8,7 @@ use Paytic\Omnipay\PlatiOnline\Message\CompletePurchaseRequest;
 use Paytic\Omnipay\PlatiOnline\Message\PurchaseRequest;
 use Paytic\Omnipay\PlatiOnline\Message\ServerCompletePurchaseRequest;
 use Paytic\Omnipay\PlatiOnline\Traits\HasSecurityParamsTrait;
-use Omnipay\Common\AbstractGateway;
+use Paytic\Omnipay\Common\Gateway\AbstractGateway;
 use Omnipay\Common\Message\NotificationInterface;
 use Omnipay\Common\Message\RequestInterface;
 

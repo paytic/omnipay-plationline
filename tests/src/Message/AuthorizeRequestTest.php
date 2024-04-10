@@ -2,8 +2,6 @@
 
 namespace Paytic\Omnipay\PlatiOnline\Tests\Message;
 
-use Paytic\Omnipay\PlatiOnline\Message\PurchaseRequest;
-use Paytic\Omnipay\PlatiOnline\Message\PurchaseResponse;
 use Paytic\Omnipay\PlatiOnline\Message\AuthorizeRequest;
 use Paytic\Omnipay\PlatiOnline\Message\AuthorizeResponse;
 
